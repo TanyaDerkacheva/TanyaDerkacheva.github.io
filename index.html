@@ -8,9 +8,25 @@
     <title>Document</title>
 </head>
 
-<body>
-    <div class="code_color">#ffffff</div>
-    <button onclick="randColor">Нажми</button>
+<body class="example">
+    <div class="btn">
+        <div class="code_color">#ffffff</div>
+    </div>
+    <script>
+        document.addEventListener("keydown", event => {
+            if (event.keyCode == 0 || event.keyCode == 32) {
+                var element = document.querySelector('.example'),
+                    code_color = document.querySelector('.code_color'),
+                    r = Math.floor(Math.random() * (256)),
+                    g = Math.floor(Math.random() * (256)),
+                    b = Math.floor(Math.random() * (256)),
+                    color = '#' + r.toString(16) + g.toString(16) + b.toString(16);
+
+                element.style.background = color;
+                code_color.innerText = color;
+            }
+        })
+    </script>
 </body>
 
 </html>
